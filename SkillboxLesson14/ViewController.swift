@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -62,11 +63,11 @@ class ViewController: UIViewController {
     
     private func configLabels() {
         cityLabel.text = city
-        if let temp = weather?.current.temp,
-           let description = weather?.current.weather.first?.weatherDescription,
-           let pressure = weather?.current.pressure,
-           let humidity = weather?.current.humidity,
-           let wind = weather?.current.windSpeed
+        if let temp = weather?.current?.temp,
+           let description = weather?.current?.weather.first?.weatherDescription,
+           let pressure = weather?.current?.pressure,
+           let humidity = weather?.current?.humidity,
+           let wind = weather?.current?.windSpeed
            {
             temperatureLabel.text = "\(temp.roundTo(places: 1))° C"
             descriptionLabel.text = String(description)
@@ -129,14 +130,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as! WeatherTableViewCell
-        if let weather = self.weather?.daily[indexPath.row + 1] {
+        if let weather = self.weather?.daily[indexPath.row + 1],
+           let temp = weather.temp {
             cell.configure(date: convertDate(date: weather.unixDate),
                            icon: loadImage(icon: weather.weather.first?.icon),
                            pressure: "Давление: \(weather.pressure) гПа",
                            humidity: "Влажность: \(weather.humidity)%",
                            wind: "Ветер: \(weather.windSpeed.roundTo(places: 1)) м/с",
-                           dayTemp: "\(weather.temp.day.roundTo(places: 1))° C",
-                           nightTemp: "\(weather.temp.night.roundTo(places: 1))° C")
+                           dayTemp: "\(temp.day.roundTo(places: 1))° C",
+                           nightTemp: "\(temp.night.roundTo(places: 1))° C")
         }
         return cell
     }
