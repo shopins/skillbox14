@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 @objcMembers class WeatherElement: Object, Codable {
+    dynamic var city: String = ""
     dynamic var weatherDescription : String = ""
     dynamic var icon : String = ""
 
@@ -19,12 +20,17 @@ import RealmSwift
 }
 
 @objcMembers class Temp: Object, Codable {
+    dynamic var city: String = ""
     dynamic var day: Double = 0
     dynamic var night: Double = 0
     
+    enum CodingKeys: String, CodingKey {
+        case day, night
+    }
 }
 
 @objcMembers class Current: Object, Codable {
+    dynamic var city: String = ""
     dynamic var temp: Double = 0
     dynamic var windSpeed: Double = 0
     dynamic var pressure: Int = 0
@@ -40,6 +46,7 @@ import RealmSwift
 }
 
 @objcMembers class Daily: Object, Codable {
+    dynamic var city: String = ""
     dynamic var temp: Temp?
     dynamic var pressure: Int = 0
     dynamic var humidity: Int = 0
@@ -55,16 +62,16 @@ import RealmSwift
 }
 
 @objcMembers class Weather: Object, Codable {
-    dynamic var id: Int = 0
+    dynamic var city: String = ""
+    dynamic var lastUpdate: Date = Date()
     dynamic var current: Current?
     dynamic var daily = RealmSwift.List<Daily>()
     
     enum CodingKeys: String, CodingKey {
         case current, daily
     }
-    
     override static func primaryKey() -> String?
     {
-        return "id"
+        return "city"
     }
 }

@@ -12,10 +12,10 @@ import RealmSwift
 class ViewController: UIViewController {
     
     var weather: Weather?
-    var city: String = "Москва"
-    var loader: Bool = false
 
     @IBOutlet weak var forcastTableView: UITableView!
+    
+    @IBOutlet weak var updateLabel: UILabel!
     
     @IBOutlet weak var cityLabel: UILabel!
     
@@ -35,40 +35,100 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         forcastTableView.register(WeatherTableViewCell.nib, forCellReuseIdentifier: WeatherTableViewCell.ident)
         weatherSwitch.addTarget(self, action: #selector(changeValue), for: .valueChanged)
-
+        if let city = CityData.get(name: "Москва") {
+            loadRealmData(city: city)
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadWeather()
+        configLabels()
+        if let city = CityData.get(name: "Москва") {
+            loadWeather(city: city, loader: true)
+        }
     }
     
-    private func loadWeather() {
-        if let city = CityData.get(name: self.city) {
+    private func loadWeather(city: City?, loader : Bool) {
+        if let city = city {
             if loader {
-                WeatherLoader().loadStandard(city: city) {weather in
-                    self.weather = weather
+                WeatherLoader().loadStandard(city: city) { weather in
+                    self.markDataWeather(city: city, weather: weather)
                     self.configLabels()
                     self.forcastTableView.reloadData()
+                    self.writeRealmData()
                    }
             } else {
-                WeatherLoader().loadAlamofire(city: city) {weather in
-                    self.weather = weather
+                WeatherLoader().loadAlamofire(city: city) { weather in
+                    self.markDataWeather(city: city, weather: weather)
                     self.configLabels()
                     self.forcastTableView.reloadData()
+                    self.writeRealmData()
                    }
             }
         }
     }
     
+    private func markDataWeather (city: City, weather: Weather) {
+        deleteMarkedData(city: city)
+        weather.lastUpdate = Date()
+        weather.city = city.name
+        for day in weather.daily {
+            day.city = city.name
+            for w in day.weather {
+                w.city = city.name
+            }
+            day.temp?.city = city.name
+        }
+        if let current = weather.current {
+            current.city = city.name
+            for w in current.weather {
+                w.city = city.name
+            }
+        }
+        self.weather = weather
+    }
+    
+    private func deleteMarkedData (city: City) {
+        let realmInstance = try! Realm()
+        try! realmInstance.write {
+            realmInstance.delete(realmInstance.objects(Weather.self).filter("city == \"\(city.name)\""))
+            realmInstance.delete(realmInstance.objects(WeatherElement.self).filter("city == \"\(city.name)\""))
+            realmInstance.delete(realmInstance.objects(Temp.self).filter("city == \"\(city.name)\""))
+            realmInstance.delete(realmInstance.objects(Daily.self).filter("city == \"\(city.name)\""))
+            realmInstance.delete(realmInstance.objects(Current.self).filter("city == \"\(city.name)\""))
+        }
+    }
+    
+    private func loadRealmData(city: City?) {
+        if let city = city {
+            weather = try? Realm().object(ofType: Weather.self, forPrimaryKey: city.name)
+        }
+    }
+    
+    private func writeRealmData() {
+            let realmInstance = try! Realm()
+            try! realmInstance.write {
+                if let weather = weather {
+                    realmInstance.add(weather, update: .modified)
+                }
+            }
+    }
+    
     private func configLabels() {
-        cityLabel.text = city
-        if let temp = weather?.current?.temp,
+        if let lastUpdate = weather?.lastUpdate,
+           let city = weather?.city,
+           let temp = weather?.current?.temp,
            let description = weather?.current?.weather.first?.weatherDescription,
            let pressure = weather?.current?.pressure,
            let humidity = weather?.current?.humidity,
            let wind = weather?.current?.windSpeed
            {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            formatter.timeStyle = .medium
+            formatter.locale = Locale(identifier: "ru_RU")
+            updateLabel.text = "Обновлено: \(formatter.string(from: lastUpdate))"
+            cityLabel.text = city
             temperatureLabel.text = "\(temp.roundTo(places: 1))° C"
             descriptionLabel.text = String(description)
             pressureLabel.text = "Давление: \(pressure) гПа"
@@ -112,14 +172,21 @@ class ViewController: UIViewController {
     
     @objc func changeValue(sender: UISwitch) {
         if sender.isOn {
-            city = "Хабаровск"
-            loader = true
+            if let city = CityData.get(name: "Хабаровск") {
+                loadRealmData(city: city)
+                configLabels()
+                forcastTableView.reloadData()
+                loadWeather(city: city, loader: false)
+            }
         }
         else {
-            city = "Москва"
-            loader = false
+            if let city = CityData.get(name: "Москва") {
+                loadRealmData(city: city)
+                configLabels()
+                forcastTableView.reloadData()
+                loadWeather(city: city, loader: true)
+            }
         }
-        loadWeather()
     }
 }
 

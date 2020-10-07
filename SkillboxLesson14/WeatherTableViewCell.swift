@@ -20,6 +20,8 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var dayTempLabel: UILabel!
     @IBOutlet weak var nightTempLabel: UILabel!
     
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var nightLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +39,9 @@ class WeatherTableViewCell: UITableViewCell {
         pressureLabel.text = pressure
         humidityLabel.text = humidity
         windLabel.text = wind
+        dayLabel.text = "днем"
         dayTempLabel.text = dayTemp
+        nightLabel.text = "ночью"
         nightTempLabel.text = nightTemp
         weatherImageView.image = icon
     }

@@ -40,27 +40,33 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="kpp-PL-d5d">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="154"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Pga-1g-2bq" userLabel="Update">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tP-eL-eUV" userLabel="City">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="51.5"/>
+                                                <rect key="frame" x="0.0" y="38.5" width="71" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajc-t2-8mo" userLabel="Temperature">
-                                                <rect key="frame" x="0.0" y="51.5" width="112" height="52.5"/>
+                                                <rect key="frame" x="0.0" y="77" width="112" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQF-cQ-Xeb" userLabel="Pressure">
-                                                <rect key="frame" x="0.0" y="104" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="115.5" width="50" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="68b-01-PdZ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="68b-01-PdZ">
                                         <rect key="frame" x="187" y="0.0" width="187" height="154"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VY8-rO-Cbg">
@@ -68,7 +74,7 @@
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="NYN-8h-ZzB" userLabel="Description">
                                                 <rect key="frame" x="187" y="31" width="0.0" height="61.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -126,6 +132,7 @@
                         <outlet property="humidityLabel" destination="5uo-bc-bM0" id="EAu-8f-iab"/>
                         <outlet property="pressureLabel" destination="WQF-cQ-Xeb" id="vVz-hn-sHi"/>
                         <outlet property="temperatureLabel" destination="Ajc-t2-8mo" id="7k7-wZ-UkO"/>
+                        <outlet property="updateLabel" destination="Pga-1g-2bq" id="r2z-IK-B2Y"/>
                         <outlet property="weatherSwitch" destination="VY8-rO-Cbg" id="rtw-KJ-Nqp"/>
                         <outlet property="windLabel" destination="9tx-o0-ITJ" id="tb4-Hh-48w"/>
                     </connections>
@@ -140,6 +147,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="uM9-ai-6lf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yw5-zE-mVU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
