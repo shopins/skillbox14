@@ -36,7 +36,7 @@ import RealmSwift
     dynamic var pressure: Int = 0
     dynamic var humidity: Int = 0
     dynamic var unixDate: Int = 0
-    dynamic var weather = RealmSwift.List<WeatherElement>()
+    dynamic var weather = List<WeatherElement>()
 
     enum CodingKeys: String, CodingKey {
         case temp, pressure, humidity, weather
@@ -52,7 +52,7 @@ import RealmSwift
     dynamic var humidity: Int = 0
     dynamic var unixDate: Int = 0
     dynamic var windSpeed: Double = 0
-    dynamic var weather = RealmSwift.List<WeatherElement>()
+    dynamic var weather = List<WeatherElement>()
     
     enum CodingKeys: String, CodingKey {
         case temp, pressure, humidity, weather
@@ -65,7 +65,7 @@ import RealmSwift
     dynamic var city: String = ""
     dynamic var lastUpdate: Date = Date()
     dynamic var current: Current?
-    dynamic var daily = RealmSwift.List<Daily>()
+    dynamic var daily = List<Daily>()
     
     enum CodingKeys: String, CodingKey {
         case current, daily

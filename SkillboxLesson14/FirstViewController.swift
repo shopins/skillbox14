@@ -12,7 +12,7 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // nameTextField.text = Persistance.shared.
+        nameTextField.text = Persistance.shared.userName
         surnameTextField.text =  Persistance.shared.userSurname
         // Do any additional setup after loading the view.
     }
@@ -22,19 +22,11 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var surnameTextField: UITextField!
     
     @IBAction func editingName(_ sender: UITextField) {
+        Persistance.shared.userName = nameTextField.text ?? ""
     }
     
     @IBAction func editingSurname(_ sender: UITextField) {
+        Persistance.shared.userSurname = surnameTextField.text ?? ""
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
