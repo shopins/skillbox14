@@ -38,11 +38,11 @@ class ViewController: UIViewController {
         if let city = CityData.get(name: "Москва") {
             loadRealmData(city: city)
         }
+        configLabels()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configLabels()
         if let city = CityData.get(name: "Москва") {
             loadWeather(city: city, loader: true)
         }
@@ -70,6 +70,7 @@ class ViewController: UIViewController {
     
     private func markDataWeather (city: City, weather: Weather) {
         deleteMarkedData(city: city)
+        
         weather.lastUpdate = Date()
         weather.city = city.name
         for day in weather.daily {
