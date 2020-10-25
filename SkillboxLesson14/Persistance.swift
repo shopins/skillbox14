@@ -1,9 +1,3 @@
-//
-//  Persistance.swift
-//  SkillboxLesson14
-//
-//  Created by Сергей Шопин on 07.10.2020.
-//
 
 import Foundation
 

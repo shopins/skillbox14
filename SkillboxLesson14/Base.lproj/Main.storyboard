@@ -289,7 +289,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Список задач" id="KKa-TR-dlO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mLI-30-8bu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mLI-30-8bu">
+                            <connections>
+                                <action selector="addAction:" destination="d6J-nP-RGf" id="jMZ-Lz-d8V"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVy-Yg-3FR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		7D2CF1868E39BC6F6C3E9120 /* Pods_SkillboxLesson14.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB5680B6B076215C75D6745 /* Pods_SkillboxLesson14.framework */; };
-		D716B9062544381D000AC2AE /* ToDoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716B9052544381D000AC2AE /* ToDoListModel.swift */; };
+		D716B9062544381D000AC2AE /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716B9052544381D000AC2AE /* RealmModel.swift */; };
 		D716B909254439E8000AC2AE /* RealmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716B908254439E8000AC2AE /* RealmTableViewController.swift */; };
 		D716B90C254439FA000AC2AE /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716B90B254439FA000AC2AE /* CoreDataTableViewController.swift */; };
-		D716B90F25444E5F000AC2AE /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716B90E25444E5F000AC2AE /* ToDoList.swift */; };
+		D716B90F25444E5F000AC2AE /* ToDoItemRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716B90E25444E5F000AC2AE /* ToDoItemRealm.swift */; };
 		D716B91225448EE8000AC2AE /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716B91125448EE7000AC2AE /* WeatherModel.swift */; };
+		D716B93C25449825000AC2AE /* SkillboxLesson14.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D716B93A25449825000AC2AE /* SkillboxLesson14.xcdatamodeld */; };
+		D716B94025449F77000AC2AE /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716B93F25449F77000AC2AE /* CoreDataModel.swift */; };
 		D71D8B74252DD35F00B4B57E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71D8B73252DD35F00B4B57E /* FirstViewController.swift */; };
 		D71D8B77252DD5FB00B4B57E /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71D8B76252DD5FB00B4B57E /* Persistance.swift */; };
 		D74C6EA425244130005BF49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C6EA325244130005BF49E /* AppDelegate.swift */; };
@@ -32,11 +34,13 @@
 		4AB5680B6B076215C75D6745 /* Pods_SkillboxLesson14.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkillboxLesson14.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7781A9A9AA14DCAEC5BDF615 /* Pods-SkillboxLesson14.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkillboxLesson14.debug.xcconfig"; path = "Target Support Files/Pods-SkillboxLesson14/Pods-SkillboxLesson14.debug.xcconfig"; sourceTree = "<group>"; };
 		9A035B82AA26E25F0D5EFC16 /* Pods-SkillboxLesson14.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkillboxLesson14.release.xcconfig"; path = "Target Support Files/Pods-SkillboxLesson14/Pods-SkillboxLesson14.release.xcconfig"; sourceTree = "<group>"; };
-		D716B9052544381D000AC2AE /* ToDoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListModel.swift; sourceTree = "<group>"; };
+		D716B9052544381D000AC2AE /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		D716B908254439E8000AC2AE /* RealmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTableViewController.swift; sourceTree = "<group>"; };
 		D716B90B254439FA000AC2AE /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
-		D716B90E25444E5F000AC2AE /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
+		D716B90E25444E5F000AC2AE /* ToDoItemRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemRealm.swift; sourceTree = "<group>"; };
 		D716B91125448EE7000AC2AE /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		D716B93B25449825000AC2AE /* SkillboxLesson14.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SkillboxLesson14.xcdatamodel; sourceTree = "<group>"; };
+		D716B93F25449F77000AC2AE /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		D71D8B73252DD35F00B4B57E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		D71D8B76252DD5FB00B4B57E /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		D74C6EA025244130005BF49E /* SkillboxLesson14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillboxLesson14.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,9 +114,11 @@
 				D71D8B73252DD35F00B4B57E /* FirstViewController.swift */,
 				D71D8B76252DD5FB00B4B57E /* Persistance.swift */,
 				D716B908254439E8000AC2AE /* RealmTableViewController.swift */,
-				D716B90E25444E5F000AC2AE /* ToDoList.swift */,
-				D716B9052544381D000AC2AE /* ToDoListModel.swift */,
+				D716B90E25444E5F000AC2AE /* ToDoItemRealm.swift */,
+				D716B9052544381D000AC2AE /* RealmModel.swift */,
 				D716B90B254439FA000AC2AE /* CoreDataTableViewController.swift */,
+				D716B93F25449F77000AC2AE /* CoreDataModel.swift */,
+				D716B93A25449825000AC2AE /* SkillboxLesson14.xcdatamodeld */,
 				D74C6EA725244130005BF49E /* ViewController.swift */,
 				D74C6ECE25287C67005BF49E /* City.swift */,
 				D74C6EC5252827D3005BF49E /* Weather.swift */,
@@ -242,16 +248,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D716B90F25444E5F000AC2AE /* ToDoList.swift in Sources */,
+				D716B90F25444E5F000AC2AE /* ToDoItemRealm.swift in Sources */,
 				D74C6EC6252827D3005BF49E /* Weather.swift in Sources */,
+				D716B94025449F77000AC2AE /* CoreDataModel.swift in Sources */,
 				D74C6ED52528882B005BF49E /* WeatherTableViewCell.swift in Sources */,
 				D716B90C254439FA000AC2AE /* CoreDataTableViewController.swift in Sources */,
 				D74C6EA825244130005BF49E /* ViewController.swift in Sources */,
-				D716B9062544381D000AC2AE /* ToDoListModel.swift in Sources */,
+				D716B9062544381D000AC2AE /* RealmModel.swift in Sources */,
 				D71D8B74252DD35F00B4B57E /* FirstViewController.swift in Sources */,
 				D74C6ECF25287C67005BF49E /* City.swift in Sources */,
 				D716B909254439E8000AC2AE /* RealmTableViewController.swift in Sources */,
 				D71D8B77252DD5FB00B4B57E /* Persistance.swift in Sources */,
+				D716B93C25449825000AC2AE /* SkillboxLesson14.xcdatamodeld in Sources */,
 				D716B91225448EE8000AC2AE /* WeatherModel.swift in Sources */,
 				D74C6EC925283B1B005BF49E /* WeatherLoader.swift in Sources */,
 				D74C6EA425244130005BF49E /* AppDelegate.swift in Sources */,
@@ -457,6 +465,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D716B93A25449825000AC2AE /* SkillboxLesson14.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D716B93B25449825000AC2AE /* SkillboxLesson14.xcdatamodel */,
+			);
+			currentVersion = D716B93B25449825000AC2AE /* SkillboxLesson14.xcdatamodel */;
+			path = SkillboxLesson14.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D74C6E9825244130005BF49E /* Project object */;
 }

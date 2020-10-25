@@ -14,7 +14,6 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         nameTextField.text = Persistance.shared.userName
         surnameTextField.text =  Persistance.shared.userSurname
-        // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var nameTextField: UITextField!

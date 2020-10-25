@@ -44,13 +44,13 @@ class RealmTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return toDoLists?.count ?? 0
+        return toDoItemsRealm?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellRealm", for: indexPath)
         
-        if let currentItem = toDoLists?[indexPath.row] {
+        if let currentItem = toDoItemsRealm?[indexPath.row] {
             cell.textLabel?.text = currentItem.name
             if currentItem.isComplited {
                 cell.accessoryType = .checkmark
@@ -80,7 +80,7 @@ class RealmTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            if let toDoList = toDoLists?[indexPath.row] {
+            if let toDoList = toDoItemsRealm?[indexPath.row] {
                 removeItem(item: toDoList)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
